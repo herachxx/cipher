@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CIPHER - Cybersecurity Intelligence, education, and threat research platform." />
+  <meta name="theme-color" content="#030508" />
+  <title>CIPHER - Cybersecurity Intelligence</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- cursor -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- background effects -->
+  <canvas class="bg-canvas" id="bgCanvas" aria-hidden="true"></canvas>
+
+  <!-- nav -->
+  <header class="site-header" id="siteHeader" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="#" class="nav-logo" aria-label="CIPHER home">
+        CIPH<span class="logo-accent">3</span>R
+      </a>
+      <ul class="nav-links" role="list" id="navLinks">
+        <li><a href="#topics" class="nav-link">Topics</a></li>
+        <li><a href="#learn" class="nav-link">Learn</a></li>
+        <li><a href="#intel" class="nav-link">Intel</a></li>
+        <li><a href="#scanner" class="nav-link">Scanner</a></li>
+        <li><a href="#community" class="nav-link">Community</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="nav-status" aria-label="Live threat feed active">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>LIVE FEED</span>
+        </div>
+        <button class="nav-search-btn" id="searchBtn" aria-label="Open search" aria-expanded="false">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- search overlay -->
+    <div class="search-overlay" id="searchOverlay" role="search" aria-hidden="true">
+      <div class="search-inner">
+        <input type="search" class="search-input" id="searchInput" placeholder="Search topics, CVEs, tools..." aria-label="Search" autocomplete="off" />
+        <div class="search-results" id="searchResults" role="listbox" aria-label="Search results"></div>
+        <p class="search-hint">Press <kbd>ESC</kbd> to close · <kbd>↑↓</kbd> to navigate</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- hero -->
+    <section class="hero" aria-labelledby="heroHeading">
+      <div class="hero-bg-text" aria-hidden="true">SECURE</div>
+      <div class="hero-content">
+        <p class="hero-label">&gt; CYBERSECURITY INTELLIGENCE PLATFORM // EST. 2024</p>
+        <h1 id="heroHeading" class="hero-title">
+          <span class="line-dim">KNOW YOUR</span>
+          <span class="line-accent">ATTACK</span>
+          <span class="line-white">SURFACE.</span>
+        </h1>
+        <p class="hero-sub">Deep-dive cybersecurity education, threat intelligence, and hands-on learning for defenders and researchers navigating the modern threat landscape.</p>
+        <div class="hero-actions">
+          <a href="#topics" class="btn btn-primary">Explore Topics</a>
+          <a href="#learn" class="btn btn-ghost">Start Learning</a>
+        </div>
+      </div>
+      <aside class="hero-stats" aria-label="Platform statistics">
+        <div class="stat">
+          <span class="stat-num" data-target="2400000" data-suffix="">2.4M</span>
+          <span class="stat-label">Attacks / Day</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-target="847" data-suffix="">847</span>
+          <span class="stat-label">CVEs This Month</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-target="99" data-suffix="s">99s</span>
+          <span class="stat-label">Avg Breach Detection</span>
+        </div>
+      </aside>
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <span class="scroll-line"></span>
+        <span class="scroll-text">SCROLL</span>
+      </div>
+    </section>
+
+    <!-- ticker -->
+    <div class="ticker" role="marquee" aria-label="Live threat feed" aria-live="off">
+      <div class="ticker-track" id="tickerTrack"></div>
+    </div>
+
+    <!-- topics -->
+    <section class="section" id="topics" aria-labelledby="topicsHeading">
+      <div class="section-header reveal">
+        <p class="section-label">&gt; KNOWLEDGE BASE</p>
+        <h2 class="section-title" id="topicsHeading">Core Topics</h2>
+        <p class="section-sub">Structured learning paths across the full spectrum - from fundamentals to red team tactics.</p>
+      </div>
+      <div class="divider" aria-hidden="true"></div>
+      <div class="topics-grid reveal" id="topicsGrid" role="list">
+      </div>
+    </section>
+
+    <!-- terminal/learn -->
+    <section class="section section-alt" id="learn" aria-labelledby="learnHeading">
+      <div class="terminal-section reveal">
+        <div class="terminal-text">
+          <p class="section-label">&gt; HANDS-ON LAB</p>
+          <h2 class="section-title" id="learnHeading">Learn By Doing</h2>
+          <p class="section-sub">Real command-line exercises in sandboxed environments. No setup - just open a terminal and start hacking (legally).</p>
+          <div class="terminal-features">
+            <div class="feature-row">
+              <span class="feature-icon">👾</span>
+              <span>Instant browser-based lab environments</span>
+            </div>
+            <div class="feature-row">
+              <span class="feature-icon">🔒</span>
+              <span>Fully isolated sandboxed networks</span>
+            </div>
+            <div class="feature-row">
+              <span class="feature-icon">👀</span>
+              <span>Progress tracking and skill badges</span>
+            </div>
+          </div>
+          <a href="#" class="btn btn-primary" style="display:inline-block; text-decoration:none; margin-top:8px;">Launch Lab Environment</a>
+        </div>
+        <div class="terminal-box" role="region" aria-label="Live terminal demo">
+          <div class="terminal-bar">
+            <div class="t-dots" aria-hidden="true">
+              <span class="t-dot t-close"></span>
+              <span class="t-dot t-min"></span>
+              <span class="t-dot t-max"></span>
+            </div>
+            <span class="t-title">cipher3r@lab:~$ - bash</span>
+            <button class="t-copy-btn" id="copyTerminal" aria-label="Copy terminal output">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            </button>
+          </div>
+          <div class="terminal-body" id="terminalBody" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- intel / artickles -->
+    <section class="section" id="intel" aria-labelledby="intelHeading">
+      <div class="section-header reveal">
+        <p class="section-label">&gt; LATEST INTEL</p>
+        <h2 class="section-title" id="intelHeading">Threat Reports</h2>
+        <p class="section-sub">Curated research, incident breakdowns, and vulnerability writeups.</p>
+      </div>
+      <div class="divider" aria-hidden="true"></div>
+
+      <!-- filter tabs -->
+      <div class="filter-tabs reveal" role="tablist" aria-label="Filter articles by category">
+        <button class="tab active" role="tab" aria-selected="true" data-filter="all">All</button>
+        <button class="tab" role="tab" aria-selected="false" data-filter="critical">Critical</button>
+        <button class="tab" role="tab" aria-selected="false" data-filter="research">Research</button>
+        <button class="tab" role="tab" aria-selected="false" data-filter="tutorial">Tutorial</button>
+        <button class="tab" role="tab" aria-selected="false" data-filter="malware">Malware</button>
+      </div>
+      <div class="articles-grid reveal" id="articlesGrid" role="list">
+      </div>
+    </section>
+
+    <!-- map of threads -->
+    <section class="section" aria-labelledby="mapHeading">
+      <div class="threat-map reveal">
+        <div class="map-header">
+          <div>
+            <p class="section-label">&gt; LIVE</p>
+            <h2 class="section-title" id="mapHeading" style="font-size:clamp(28px,4vw,48px); margin-bottom:0;">Global Threat Activity</h2>
+          </div>
+          <div class="map-status">
+            <span class="map-live">● SIMULATED DATA</span>
+            <span class="map-update">Updated every 30s</span>
+          </div>
+        </div>
+        <canvas class="map-canvas" id="mapCanvas" aria-label="Animated threat map visualization"></canvas>
+        <div class="threat-stats" aria-label="Threat statistics">
+          <div class="t-stat">
+            <div class="t-stat-num" data-target="148203">0</div>
+            <div class="t-stat-label">Attacks / Hour</div>
+          </div>
+          <div class="t-stat">
+            <div class="t-stat-num" data-target="9847">0</div>
+            <div class="t-stat-label">Unique Sources</div>
+          </div>
+          <div class="t-stat">
+            <div class="t-stat-num" data-target="63">0</div>
+            <div class="t-stat-label">Countries</div>
+          </div>
+          <div class="t-stat">
+            <div class="t-stat-num" data-target="2341092">0</div>
+            <div class="t-stat-label">Blocked Today</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ip toolkit -->
+    <section class="section" id="scanner" aria-labelledby="scannerHeading">
+      <div class="section-header reveal">
+        <p class="section-label">&gt; IP TOOLKIT</p>
+        <h2 class="section-title" id="scannerHeading">IP Toolkit</h2>
+        <p class="section-sub">Five tools in one - geolocation, WHOIS, port scan, blocklist reputation, and IP analysis. Everything runs live in your browser.</p>
+      </div>
+      <div class="divider" aria-hidden="true"></div>
+      <div class="scanner-wrap reveal">
+        <!-- left: controls -->
+        <div class="scanner-controls">
+          <!-- single target input -->
+          <div class="scanner-card scanner-card-target">
+            <p class="scanner-card-title">Target</p>
+            <div class="scanner-input-row">
+              <input
+                type="text"
+                id="scannerTarget"
+                class="scanner-input"
+                placeholder="IP address or domain - e.g. 8.8.8.8 or google.com"
+                autocomplete="off"
+                spellcheck="false"
+                aria-label="Target IP address or domain"
+              />
+              <button class="scanner-btn-myip" id="scannerMyIpBtn" title="Detect my public IP"> 🦕 My IP</button>
+            </div>
+            <div class="my-ip-badge">
+              Your public IP: <span id="myIpDisplay">-</span>
+            </div>
+          </div>
+          <!-- tool buttons -->
+          <div class="scanner-card">
+            <p class="scanner-card-title">Tools</p>
+            <div class="scanner-tool-grid">
+              <button class="tool-btn" id="btnIPInfo">
+                <span class="tool-btn-icon">🌍</span>
+                <span class="tool-btn-label">IP Info</span>
+                <span class="tool-btn-desc">Geolocation, ISP, ASN, proxy/VPN/hosting flags</span>
+              </button>
+              <button class="tool-btn" id="btnWhois">
+                <span class="tool-btn-icon">📋</span>
+                <span class="tool-btn-label">WHOIS</span>
+                <span class="tool-btn-desc">Registrar, creation/expiry dates, nameservers</span>
+              </button>
+              <button class="tool-btn" id="btnPortScan">
+                <span class="tool-btn-icon">🔌</span>
+                <span class="tool-btn-label">Port Scan</span>
+                <span class="tool-btn-desc">16 common ports with service & risk rating</span>
+              </button>
+              <button class="tool-btn" id="btnReputation">
+                <span class="tool-btn-icon">🛡️</span>
+                <span class="tool-btn-label">Reputation</span>
+                <span class="tool-btn-desc">Check against 5 DNSBL blocklists</span>
+              </button>
+              <button class="tool-btn" id="btnAnalyse">
+                <span class="tool-btn-icon">🔬</span>
+                <span class="tool-btn-label">IP Analysis</span>
+                <span class="tool-btn-desc">Binary, hex, class, type - or CIDR subnet calc</span>
+              </button>
+              <button class="tool-btn tool-btn-all" id="btnAll">
+                <span class="tool-btn-icon">👀</span>
+                <span class="tool-btn-label">Run All</span>
+                <span class="tool-btn-desc">Execute every tool in sequence</span>
+              </button>
+            </div>
+          </div>
+          <!-- status + clear -->
+          <div class="scanner-footer-row">
+            <span class="scanner-status" id="scannerStatus">Ready.</span>
+            <button class="scanner-clear-btn" id="scannerClearBtn">✕ Clear</button>
+          </div>
+          <p class="scanner-hint">
+            // Uses ip-api.com · rdap.org · portscan.io · dns.google (DoH)<br>
+            // IP Analysis runs 100% locally - no requests sent.
+          </p>
+
+        </div>
+        <!-- right: terminal output -->
+        <div class="scanner-terminal" role="region" aria-label="Toolkit output">
+          <div class="terminal-bar">
+            <div class="t-dots" aria-hidden="true">
+              <span class="t-dot t-close"></span>
+              <span class="t-dot t-min"></span>
+              <span class="t-dot t-max"></span>
+            </div>
+            <span class="t-title">cipher3r@toolkit:~$ - ip toolkit</span>
+          </div>
+          <div class="scanner-output" id="scannerOutput" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- newsletter -->
+    <section class="section" id="community" aria-labelledby="newsletterHeading">
+      <div class="newsletter reveal">
+        <div class="newsletter-text">
+          <p class="section-label">&gt; STAY INFORMED</p>
+          <h2 class="newsletter-title" id="newsletterHeading">Weekly Intel Brief</h2>
+          <p>Get a curated summary of critical vulnerabilities, research, and tools - every Monday. No spam, no noise.</p>
+        </div>
+        <div class="newsletter-form-wrap">
+          <form class="newsletter-form" id="newsletterForm" novalidate aria-label="Newsletter signup">
+            <div class="input-group">
+              <label for="emailInput" class="sr-only">Email address</label>
+              <input type="email" id="emailInput" class="email-input" placeholder="your@email.com" autocomplete="email" required aria-required="true" />
+              <button type="submit" class="btn-subscribe">Subscribe</button>
+            </div>
+            <p class="newsletter-note" aria-live="polite" id="formMessage">// NO TRACKING · OPEN-PGP SIGNED · UNSUBSCRIBE ANYTIME</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <!-- footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">CIPH3R</span>
+        <p class="footer-tagline">For education. For defense. For the community.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <ul role="list">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Write for Us</a></li>
+          <li><a href="#">Responsible Disclosure</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">RSS Feed</a></li>
+        </ul>
+      </nav>
+      <div class="footer-copy">
+        <p>© 2026 CIPHER · FOR EDU USE ONLY</p>
+        <p class="footer-hash" id="buildHash"></p>
+      </div>
+    </div>
+  </footer>
+  <!-- back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" hidden>↑</button>
+  <!-- toast notifications -->
+  <div class="toast-container" id="toastContainer" aria-live="assertive" aria-atomic="true"></div>
+  <!-- scripts (module order matters) -->
+  <script src="js/data.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/background.js"></script>
+  <script src="js/ticker.js"></script>
+  <script src="js/terminal.js"></script>
+  <script src="js/topics.js"></script>
+  <script src="js/articles.js"></script>
+  <script src="js/threatmap.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/scanner.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
