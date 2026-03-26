@@ -250,7 +250,7 @@ g++ -std=c++17 -O2 -Wall -o cipher_net cipher_net.cpp
 ./cipher_net scan 192.168.1.1 20 443
 ```
 
-> ⚠ Only use the port scanner on hosts you own or have permission to test.
+> (!) Only use the port scanner on hosts you own or have permission to test.
 
 ---
 
