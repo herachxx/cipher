@@ -7,7 +7,7 @@
 
 ## What is CIPHER?
 
-CIPHER is an open educational cybersecurity website that combines a curated learning resource with a live, browser-based **IP Toolkit** - a direct port of [`ip_toolkit.py`](ip_toolkit.py) to JavaScript. Every tool runs inside the browser tab. No servers, no data collection, no setup.
+CIPHER is an open educational cybersecurity website that combines a curated learning resource with a live, browser-based **IP Toolkit** - a direct port of [`ip_toolkit.py`](https://github.com/herachxx/ip-toolkit) to JavaScript. Every tool runs inside the browser tab. No servers, no data collection, no setup.
 
 ---
 
@@ -315,4 +315,4 @@ This project is for **educational purposes only**.
 
 ## License
 
-See `LICENSE` in the original `ip_toolkit` repository.
+See `LICENSE` in the original (`ip_toolkit`)[https://github.com/herachxx/ip-toolkit] repository.
