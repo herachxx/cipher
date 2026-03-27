@@ -634,7 +634,7 @@
   if (output) {
     output.innerHTML = [
       ln('t-comment', '# ╔══════════════════════════════════════════╗'),
-      ln('t-comment', '# ║   CIPHER IP Toolkit - browser edition    ║'),
+      ln('t-comment', '# ║   CIPHER IP toolkit - browser edition     ║'),
       ln('t-comment', '# ╚══════════════════════════════════════════╝'),
       ln('', ''),
       ln('t-out',     'Tools: IP Info · WHOIS · Port Scan · Reputation · IP Analysis'),
