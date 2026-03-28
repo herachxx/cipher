@@ -6,12 +6,12 @@
 </div>
 
 ```
-     ██████╗██╗██████╗ ██╗  ██╗███████╗██████╗
-    ██╔════╝██║██╔══██╗██║  ██║██╔════╝██╔══██╗
-    ██║     ██║██████╔╝███████║█████╗  ██████╔╝
-    ██║     ██║██╔═══╝ ██╔══██║██╔══╝  ██╔══██╗
-    ╚██████╗██║██║     ██║  ██║███████╗██║  ██║
-     ╚═════╝╚═╝╚═╝     ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
+           ██████╗██╗██████╗ ██╗  ██╗███████╗██████╗
+          ██╔════╝██║██╔══██╗██║  ██║██╔════╝██╔══██╗
+          ██║     ██║██████╔╝███████║█████╗  ██████╔╝
+          ██║     ██║██╔═══╝ ██╔══██║██╔══╝  ██╔══██╗
+          ╚██████╗██║██║     ██║  ██║███████╗██║  ██║
+           ╚═════╝╚═╝╚═╝     ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
 ```
 
 ---
@@ -99,7 +99,7 @@ That's the entire setup. No package managers. No compilers. No configuration fil
 │ IP Analysis      │ Binary · hex · decimal · RFC class           │ 100% local, zero requests    │
 │                  │ type flags · CIDR subnet calculator          │                              │
 ├──────────────────┼──────────────────────────────────────────────┼──────────────────────────────┤
-│ Run All          │ Chains all 8 tools in sequence               │ —                            │
+│ Run All          │ Chains all 8 tools in sequence               │ -                            │
 └──────────────────┴──────────────────────────────────────────────┴──────────────────────────────┘
 ```
 
@@ -165,7 +165,7 @@ cipher/
 │   ├── articles.js              ← article grid + filter tabs
 │   ├── threatmap.js             ← canvas threat map with animated attack beams
 │   ├── ui.js                    ← search (⌘K) · toasts · nav scroll · theme toggle
-│   ├── email.js                 ← newsletter via EmailJS — configure 4 constants
+│   ├── email.js                 ← newsletter via EmailJS - configure 4 constants
 │   ├── scanner.js               ← IP toolkit: all 8 tools, terminal output engine
 │   └── main.js                  ← entry point · icon hydration · build hash
 │
