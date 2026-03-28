@@ -1,21 +1,23 @@
-
-```
- ██████╗██╗██████╗ ██╗  ██╗███████╗██████╗
-██╔════╝██║██╔══██╗██║  ██║██╔════╝██╔══██╗
-██║     ██║██████╔╝███████║█████╗  ██████╔╝
-██║     ██║██╔═══╝ ██╔══██║██╔══╝  ██╔══██╗
-╚██████╗██║██║     ██║  ██║███████╗██║  ██║
- ╚═════╝╚═╝╚═╝     ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
-```
-
 <div align="center">
 
 **Cybersecurity Intelligence Platform**  
-
 *Open the browser. Start hacking - legally.*  
+
+</div>
+
+```
+     ██████╗██╗██████╗ ██╗  ██╗███████╗██████╗
+    ██╔════╝██║██╔══██╗██║  ██║██╔════╝██╔══██╗
+    ██║     ██║██████╔╝███████║█████╗  ██████╔╝
+    ██║     ██║██╔═══╝ ██╔══██║██╔══╝  ██╔══██╗
+    ╚██████╗██║██║     ██║  ██║███████╗██║  ██║
+     ╚═════╝╚═╝╚═╝     ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
+```
 
 ---
 
+<div align="center">
+ 
 ![HTML](https://img.shields.io/badge/HTML5-pure-00e5ff?style=flat-square&logo=html5&logoColor=00e5ff&labelColor=030508)
 ![CSS](https://img.shields.io/badge/CSS3-modular-00e5ff?style=flat-square&logo=css3&logoColor=00e5ff&labelColor=030508)
 ![JavaScript](https://img.shields.io/badge/JavaScript-vanilla-00e5ff?style=flat-square&logo=javascript&logoColor=00e5ff&labelColor=030508)
@@ -39,14 +41,14 @@ At its core is the **IP Toolkit** - a full port of [`ip_toolkit.py`](ip_toolkit.
 ┌─────────────────────────────────────────────────────┐
 │  cipher3r@toolkit:~$ ip info 8.8.8.8                │
 │                                                     │
-│  ┌─ IP INFO ───────────────────────────────────┐   │
-│  │  IP Address    8.8.8.8                      │   │
-│  │  Country       United States                │   │
-│  │  ISP           Google LLC                   │   │
-│  │  ASN           AS15169 Google LLC           │   │
-│  │  Proxy/VPN     NO                           │   │
-│  │  Hosting       YES                          │   │
-│  └─────────────────────────────────────────────┘   │
+│  ┌─ IP INFO ───────────────────────────────────┐    │
+│  │  IP Address    8.8.8.8                      │    │
+│  │  Country       United States                │    │
+│  │  ISP           Google LLC                   │    │
+│  │  ASN           AS15169 Google LLC           │    │
+│  │  Proxy/VPN     NO                           │    │
+│  │  Hosting       YES                          │    │
+│  └─────────────────────────────────────────────┘    │
 └─────────────────────────────────────────────────────┘
 ```
 
@@ -87,7 +89,7 @@ That's the entire setup. No package managers. No compilers. No configuration fil
 ├──────────────────┼──────────────────────────────────────────────┼──────────────────────────────┤
 │ Reputation       │ DNSBL check across 5 major blocklists        │ dns.google (DoH)             │
 ├──────────────────┼──────────────────────────────────────────────┼──────────────────────────────┤
-│ DNS Lookup       │ A · AAAA · MX · NS · TXT · CNAME records    │ dns.google (DoH)             │
+│ DNS Lookup       │ A · AAAA · MX · NS · TXT · CNAME records     │ dns.google (DoH)             │
 ├──────────────────┼──────────────────────────────────────────────┼──────────────────────────────┤
 │ SSL Check        │ Issuer · expiry · days remaining · SANs      │ crt.sh (CT logs)             │
 ├──────────────────┼──────────────────────────────────────────────┼──────────────────────────────┤
