@@ -1,3 +1,9 @@
+<div align="center">
+  
+**Cybersecurity Intelligence Platform**
+
+</div>
+
 ```
                        ██████╗██╗██████╗ ██╗  ██╗███████╗██████╗
                       ██╔════╝██║██╔══██╗██║  ██║██╔════╝██╔══██╗
@@ -9,7 +15,6 @@
 
 <div align="center">
 
-**Cybersecurity Intelligence Platform**  
 *Open the browser. Start hacking - legally.*  
 
 </div>
