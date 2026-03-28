@@ -35,7 +35,7 @@
 
 CIPHER is a **client-side cybersecurity education platform** - part learning hub, part live intelligence toolkit. It runs entirely in your browser tab. There's no server, no database, no install, no `npm install`. Just open `index.html`.  
 
-At its core is the **IP Toolkit** - a full port of [`ip_toolkit.py`](ip_toolkit.py) in JavaScript. Every tool that ran in your terminal now runs in a slick terminal-style UI inside the browser, hitting real APIs in real time.  
+At its core is the **IP Toolkit** - a full port of [`ip_toolkit.py`](https://github.com/herachxx/ip-toolkit) rewritten in JavaScript. Every tool that ran in your terminal now runs in a slick terminal-style UI inside the browser, hitting real APIs in real time.  
 
 ```
 ┌─────────────────────────────────────────────────────┐
