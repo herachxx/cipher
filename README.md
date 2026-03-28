@@ -401,13 +401,3 @@ This project is for **educational purposes only**.
 ## License
 
 MIT © 2026 [Aruzhan Maratova (@herachxx)](https://github.com/herachxx)
-
----
-
-<div align="center">
-
-```
-// built for defenders. by someone learning to be one.
-```
-
-</div>
