@@ -59,18 +59,25 @@ At its core is the **IP Toolkit** - a full port of [`ip_toolkit.py`](https://git
 
 ---
 
-## Quick Start
+## `> INSTALLATION`
+
+**Requirements:**
+- Python 3.10+
+- Internet connection
+- Terminal with ANSI colour support (CMD, PowerShell)
+
+**No pip install needed.** Zero dependencies.
 
 ```bash
-# Option 1 - just open the file
-open index.html
+# Clone the repository
+git clone https://github.com/herachxx/ip-toolkit.git
 
-# Option 2 - local server (recommended, fixes CORS on some APIs)
-python -m http.server 8080
-# → http://localhost:8080
+# Navigate into the folder
+cd ip-toolkit
+
+# Run it
+python ip_toolkit.py
 ```
-
-That's the entire setup. No package managers. No compilers. No configuration files.
 
 ---
 
@@ -515,28 +522,6 @@ It supports two modes: an **interactive menu** (just run the script with no argu
  └────────────────────────────────────────────────┘
 
   [~] Saved to ip_log.txt
-```
-
----
-
-## `> INSTALLATION`
-
-**Requirements:**
-- Python 3.10+
-- Internet connection
-- Terminal with ANSI colour support (CMD, PowerShell, VS Code, Linux/Mac)
-
-**No pip install needed.** Zero dependencies.
-
-```bash
-# Clone the repository
-git clone https://github.com/herachxx/ip-toolkit.git
-
-# Navigate into the folder
-cd ip-toolkit
-
-# Run it
-python ip_toolkit.py
 ```
 
 ---
