@@ -1,22 +1,13 @@
 /**
- * CIPHER - network analysis utilities (educational)
- * cross-platform: Windows (Winsock2) + Linux/macOS (POSIX)
- * 
- * build on WINDOWS (MinGW / g++):
- *   g++ -std=c++17 -O2 -Wall -o cipher_net cipher_net.cpp -lws2_32
- * 
- * build on Linux / macOS:
- *   g++ -std=c++17 -O2 -Wall -o cipher_net cipher_net.cpp
- *
- * usage:
- *   cipher_net ip   <address>
- *   cipher_net cidr <address/prefix>
- *   cipher_net scan <host> <start_port> <end_port>
- *
- * WARNING: Only scan hosts you own or have permission to test.
- */
-
-// platform detection
+build on WINDOWS (MinGW / g++):
+   g++ -std=c++17 -O2 -Wall -o cipher_net cipher_net.cpp -lws2_32
+build on Linux / macOS:
+   g++ -std=c++17 -O2 -Wall -o cipher_net cipher_net.cpp
+usage:
+   cipher_net ip   <address>
+   cipher_net cidr <address/prefix>
+   cipher_net scan <host> <start_port> <end_port>
+**/
 #ifdef _WIN32
   #define WIN32_LEAN_AND_MEAN
   #ifndef NOMINMAX
@@ -40,7 +31,6 @@
   using socket_t = int;
   static const socket_t BAD_SOCKET = -1;
 #endif
-
 #include <algorithm>
 #include <chrono>
 #include <cstring>
@@ -49,7 +39,6 @@
 #include <stdexcept>
 #include <string>
 #include <vector>
-// ANSI colours
 namespace Color {
 #ifdef _WIN32
   inline void enable() {
@@ -69,7 +58,6 @@ namespace Color {
   constexpr const char* DIM    = "\033[2m";
   constexpr const char* BOLD   = "\033[1m";
 }
-// winsock RAII guard
 struct WinsockGuard {
   WinsockGuard() {
 #ifdef _WIN32
@@ -84,7 +72,6 @@ struct WinsockGuard {
 #endif
   }
 };
-// IPv4 address
 struct IPv4Address {
   uint32_t value = 0; // host byte order
   static IPv4Address parse(const std::string& s) {
@@ -144,7 +131,6 @@ struct IPv4Address {
     return s;
   }
 };
-// CIDR subnet
 struct CIDRSubnet {
   IPv4Address network;
   int prefix = 0;
@@ -184,7 +170,6 @@ struct CIDRSubnet {
     IPv4Address m; m.value = mask(); return m.toString();
   }
 };
-// port scanner
 static const std::vector<std::pair<uint16_t, const char*>> KNOWN_PORTS = {
   {21,    "ftp"},       {22,   "ssh"},       {23,   "telnet"},
   {25,    "smtp"},      {53,   "dns"},       {80,   "http"},
@@ -213,7 +198,6 @@ PortResult probePort(const std::string& host, uint16_t port, int timeoutMs = 800
   freeaddrinfo(res);
   socket_t fd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
   if (fd == BAD_SOCKET) return result;
-  // set non-blocking
 #ifdef _WIN32
   u_long nb = 1;
   ioctlsocket(fd, FIONBIO, &nb);
@@ -236,7 +220,6 @@ PortResult probePort(const std::string& host, uint16_t port, int timeoutMs = 800
   CLOSE_SOCKET(fd);
   return result;
 }
-// pretty print helpers
 static void sep(char c = '-', int w = 56) {
   std::cout << Color::DIM;
   for (int i = 0; i < w; ++i) std::cout << c;
@@ -249,7 +232,6 @@ static void kv(const std::string& key, const std::string& val,
   while (pad-- > 0) std::cout << ' ';
   std::cout << Color::RESET << col << val << Color::RESET << '\n';
 }
-// commands
 void cmdIP(const std::string& raw) {
   auto ip = IPv4Address::parse(raw);
   std::cout << '\n' << Color::BOLD << Color::CYAN
@@ -322,7 +304,6 @@ void cmdScan(const std::string& host, int start, int end) {
             << " ports - " << openCount << " open.\n"
             << Color::RESET << '\n';
 }
-// entry point
 int main(int argc, char* argv[]) {
   Color::enable();
   std::cout << Color::BOLD << Color::CYAN
